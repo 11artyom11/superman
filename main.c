@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
 
     printf("This is the script I am going to run %s\n", path);
     pipe(fd);
-    if ( (childpid = fork   () ) == -1){
+    if ( (childpid = fork() ) == -1){
         fprintf(stderr, "FORK failed");
         return 1;
     } else if( childpid == 0) {
