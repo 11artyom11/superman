@@ -10,16 +10,16 @@ all: prep superman
 
 
 VPATH=./
-OBJ=main.o
+OBJ=main.o core.o
 
 prep:
 	mkdir -p $(BUILDDIR)
 	mkdir -p $(OBJDIR)
 superman: $(OBJ)
-	$(CC) $(OBJDIR)/$(OBJ) -o $(BUILDDIR)/$@
+	$(CC) $(OBJ) -o $(BUILDDIR)/$@
 
 .c.o:
-	$(CC) $(CFLAGS) $< -c -o $(OBJDIR)/$@
+	$(CC) $(CFLAGS) $< -c -o $@
 
 clean:
 	rm -rf $(BUILDDIR)
