@@ -1,22 +1,22 @@
+#include "super_defines.h"
 #include "core.h"
 
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/wait.h>
 
-#define NOT_ENOUGH_ARGS 0x1
-
-int main(int argc, char* argv[])
+i32 main(int argc, char* argv[])
 {
     if (argc < 2) {
         fprintf(stderr, "[ERROR] Please provide the path of the script\n");
-        return NOT_ENOUGH_ARGS;
+        return F_NOT_ENOUGH_ARGS;
     }
-
+    
+    i32 status = 0;
     SContext context;
-    char* script_path;
-    script_path = argv[1];
-    context.e_state = IDLE;
-    context.fp_script = fopen(script_path, "rx");
+
+    create_context(argv[1], &context);
     dump_context(&context);
+    enqueue_process(&context);
+    enqueue_process(&context);
 }

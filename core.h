@@ -1,9 +1,9 @@
 #pragma once
+
+#include "super_defines.h"
+
 #include <unistd.h>
 #include <stdio.h>
-
-#define MAX_CONTEXT 256
-
 
 enum State{
     IDLE,
@@ -26,5 +26,6 @@ typedef struct {
 
 static SuperMan s_superman;
 
-int ignite_process (SContext* s_new_context);
-void dump_context (const SContext* s_context);
+int create_context  (const char* file_path, SContext* s_new_context);
+int enqueue_process (SContext* s_new_context);
+void dump_context   (const SContext* s_context);

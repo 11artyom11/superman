@@ -6,6 +6,9 @@
         "*.BLI;11": "bliss",
         "*.BLI;8": "bliss",
         "*.BLI;10": "bliss",
-        "core.h": "c"
+        "core.h": "c",
+        "unistd.h": "c",
+        "stdio.h": "c",
+        "wait.h": "c"
     }
 }
