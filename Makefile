@@ -10,8 +10,9 @@ all: prologue $(BUILDDIR)/$(BIN)
 .SUFFIXES: .c .o
 
 VPATH=./
-SRC=main.c core.c
+SRC=main.c core.c logger.c
 OBJ=$(patsubst %.c,$(OBJDIR)/%.o,$(SRC))
+HDRS=$(patsubst %.c,$(OBJDIR)/%.h,$(SRC))
 
 prologue:
 	mkdir -p $(BUILDDIR)

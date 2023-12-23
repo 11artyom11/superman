@@ -1,5 +1,6 @@
 #include "super_defines.h"
 #include "core.h"
+#include "logger.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -14,7 +15,7 @@ i32 main(int argc, char* argv[])
 
 	i32 status = 0;
 	SContext context;
-
+	SUPER_LOG_DBG("Somerhign");
 	if ((status &= create_context(argv[1], &context)) != S_SUCCESS) {
 		return F_FATAL_EXIT;
 	}
@@ -26,9 +27,4 @@ i32 main(int argc, char* argv[])
 	if ((status &= enqueue_process(&context)) != S_SUCCESS) {
 		return F_FATAL_EXIT;
 	}
-   
-	if ((status &= enqueue_process(&context))!= S_SUCCESS) {
-		return F_FATAL_EXIT;
-	}
-
 }
