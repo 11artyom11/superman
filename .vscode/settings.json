@@ -9,6 +9,7 @@
         "core.h": "c",
         "unistd.h": "c",
         "stdio.h": "c",
-        "wait.h": "c"
+        "wait.h": "c",
+        "super_defines.h": "c"
     }
 }
