@@ -23,3 +23,4 @@ superman: $(OBJ)
 
 clean:
 	rm -rf $(BUILDDIR)
+	rm -rf *.o
