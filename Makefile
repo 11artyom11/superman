@@ -1,26 +1,27 @@
 CC=gcc
 CFLAGS=
 BUILDDIR=./bin
+BIN=superman
 OBJDIR=$(BUILDDIR)/obj
 
-all: prep superman
+all: prologue $(BUILDDIR)/$(BIN)
 
-.PHONY: all clean
+.PHONY: all
 .SUFFIXES: .c .o
 
-
 VPATH=./
-OBJ=main.o core.o
+SRC=main.c core.c
+OBJ=$(patsubst %.c,$(OBJDIR)/%.o,$(SRC))
 
-prep:
+prologue:
 	mkdir -p $(BUILDDIR)
 	mkdir -p $(OBJDIR)
-superman: $(OBJ)
-	$(CC) $(OBJ) -o $(BUILDDIR)/$@
 
-.c.o:
-	$(CC) $(CFLAGS) $< -c -o $@
+$(BUILDDIR)/$(BIN): $(OBJ)
+	$(CC) $^ -o $@
+
+$(OBJDIR)/%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(BUILDDIR)
-	rm -rf *.o
